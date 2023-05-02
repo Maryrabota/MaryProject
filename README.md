@@ -1,2 +1,2 @@
 # MaryProject
-The framework for testing an online marketplace
+The test framework based on Java for testing an online marketplace
