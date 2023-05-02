@@ -1,2 +1,2 @@
 # MaryProject
-The framework fortesting an online marketplace
+The framework for testing an online marketplace
