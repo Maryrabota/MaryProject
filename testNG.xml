@@ -3,7 +3,7 @@
 <suite name="All Test Suite" >
     <test verbose="2" preserve-order="true" name="D:\git\MaryProject\testNG.xml">
        <classes>
-           <class name="tests.smokeTests.positiveTests.smokeTest"></class>
+           <class name="tests.smokeTests.negativeTests.smokeNegTest"></class>
        </classes>
     </test>
 </suite>
