@@ -17,7 +17,7 @@ public class smokeNegTest extends BaseTest {
             .searchForIncorrectSymbol()
             .compareIsTextCorrect();
 
-    logger.info("Enter & search for incorrect message to find out the error message");
+    logger.info("Enter & search for incorrect message to find out error message");
     }
 
 }
