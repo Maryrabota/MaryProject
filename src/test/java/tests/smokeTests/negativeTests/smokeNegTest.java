@@ -10,7 +10,7 @@ public class smokeNegTest extends BaseTest {
     private static final Logger logger = Logger.getGlobal();
 
     @Test
-    public void pageNotFound () {
+    public void pageNotFound ()  {
 
     notFoundPage
             .enterIncorrectSymbol()
