@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 import pages.NegativeTestPages.NotFoundPage;
 import pages.base.BasePage;
 import pages.regressionPages.RegressionPage;
+import pages.smokePages.BuyPage;
 import pages.smokePages.FilteringPage;
 import pages.smokePages.LoginRozPage;
 import pages.smokePages.SearchPage;
@@ -26,6 +27,7 @@ public class BaseTest {
     protected SearchPage searchPage = new SearchPage(driver);
     protected FilteringPage filteringPage = new FilteringPage(driver);
     protected NotFoundPage notFoundPage = new NotFoundPage(driver);
+    protected BuyPage buyPage = new BuyPage(driver);
 
     @BeforeTest
     public void setUp() {
