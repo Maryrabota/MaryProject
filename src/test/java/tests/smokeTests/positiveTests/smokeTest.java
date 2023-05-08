@@ -19,15 +19,38 @@ public class smokeTest extends BaseTest  {
     }
 
     @Test
+    public void IsLoggedUserInfoAutofilledInCart ()  {
+
+        /**
+         * the test checks if logged-in user's data is autofilled in shopping cart
+         */
+
+        loginRozPage.enterLoginPassword();
+
+        basePage.open(ROZETKA_APPLE_URL);
+
+        buyPage
+                .addingToCart()
+                .oformiZakaz()
+                .isContactinfoAutofilled();
+
+        logger.info("When user logged in & makes order, his data is autofilled in shopping cart");
+    }
+
+    @Test
 
     public void searchItem () {
+
+        /**
+         * the test checks if search is working correctly and if it displays all items
+         */
 
         searchPage
                 .searchForShoes()
                 .checknumberofShoeTiles()
                 .chooseFirstShoes();
 
-        logger.info("We compared number of shoes tiles and then clicked on the first item in list of sportshoes");
+        logger.info("We implemented search, verified all shoes tiles are displayed, and verified, we can open one of items in the list");
     }
 
     @Test
