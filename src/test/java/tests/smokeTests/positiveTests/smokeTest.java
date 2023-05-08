@@ -32,7 +32,7 @@ public class smokeTest extends BaseTest  {
         buyPage
                 .addingToCart()
                 .oformiZakaz()
-                .isContactinfoAutofilled();
+                .isContactInfoAutofilled();
 
         logger.info("When user logged in & makes order, his data is autofilled in shopping cart");
     }

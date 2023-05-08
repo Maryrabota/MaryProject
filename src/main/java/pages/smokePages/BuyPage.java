@@ -31,7 +31,7 @@ public class BuyPage extends BasePage {
         return this;
     }
 
-    public BuyPage isContactinfoAutofilled () {
+    public BuyPage isContactInfoAutofilled () {
 
         if (driver.findElement(contactInfo).isDisplayed())
         {
