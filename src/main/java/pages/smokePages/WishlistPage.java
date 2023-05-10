@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.base.BasePage;
 
-import static pages.regressionPages.RegressPageTextData.*;
+import static pages.regressionPages.WishlistPageTextData.*;
 
-public class RegressionPage extends BasePage {
+public class WishlistPage extends BasePage {
 
-    public RegressionPage(WebDriver driver){
+    public WishlistPage(WebDriver driver){
 
         super(driver);
     }
@@ -22,18 +22,18 @@ public class RegressionPage extends BasePage {
 
     private final By wishList = By.linkText("https://rozetka.com.ua/cabinet/wishlist/");
 
-    public RegressionPage searchHuawei () {
+    public WishlistPage searchHuawei () {
         driver.findElement(searchInput).sendKeys(huaweiPhoneText);
         driver.findElement(findBtn).click();
         return this;
     }
 
-    public RegressionPage firstHuaweiAddToWishlist () {
+    public WishlistPage firstHuaweiAddToWishlist () {
         driver.findElement(firstHuaweiWishBtn).click();
         return this;
     }
 
-    public RegressionPage isHuaweiInWishlistDisplayed () {
+    public WishlistPage isHuaweiInWishlistDisplayed () {
         driver.findElement(wishList).click();
         Assert.assertTrue(driver.findElement(firstHuawei).isDisplayed());
         return this;
