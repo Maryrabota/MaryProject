@@ -7,7 +7,7 @@ import pages.base.BasePage;
 import static constants.constant.TextdataForLoginPage.ROZETKA_LOGIN;
 import static constants.constant.TextdataForLoginPage.ROZETKA_PASSWORD;
 
-public class LoginPage  extends BasePage {
+public class LoginPage extends BasePage {
 
     public LoginPage (WebDriver driver) {
 
@@ -36,7 +36,6 @@ public class LoginPage  extends BasePage {
         public LoginPage enterLoginPassword (){
             driver.findElement(loginInput).sendKeys(ROZETKA_LOGIN);
             driver.findElement(passwordInput).sendKeys(ROZETKA_PASSWORD);
-
             driver.findElement(LgnButton).click();
             return this;
         }
@@ -47,6 +46,6 @@ public class LoginPage  extends BasePage {
 
         public boolean authorizedUserNameIsPresent () {
             waitElementVisible(driver.findElement(authorizedUserName));
-             return true;
+            return true;
         }
     }

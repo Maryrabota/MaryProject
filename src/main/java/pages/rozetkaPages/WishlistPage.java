@@ -3,10 +3,8 @@ package pages.rozetkaPages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
-
 import static constants.constant.Locators.searchInput;
 import static constants.constant.TextDataForWishlistPage.HUAWEI_PHONE;
-
 
 public class WishlistPage extends BasePage {
 

@@ -17,8 +17,6 @@ public class NotFoundPage extends BasePage {
         private final By nthgFoundMsg =  By.xpath ("//p[@class='search-suggest__item search-suggest__item-content search-suggest__item-content_type_no-results search-suggest__item-text ng-star-inserted']");
         private final By nthgFoundPage =  By.xpath("(//span[@class='ng-star-inserted']) [1]");
 
-
-
         /**
          * we enter the searched item into the search field
          */
