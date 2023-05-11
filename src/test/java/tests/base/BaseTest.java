@@ -5,29 +5,30 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import pages.NegativeTestPages.NotFoundPage;
 import pages.base.BasePage;
-import pages.regressionPages.RegressionPage;
-import pages.smokePages.BuyPage;
-import pages.smokePages.FilteringPage;
-import pages.smokePages.LoginRozPage;
-import pages.smokePages.SearchPage;
+import pages.rozetkaPages.*;
+
+
+import java.util.logging.Logger;
 
 import static common.config.BROWSER_IS_OPEN;
 import static common.config.CLEAR_COOKIE_AND_STORAGE;
-import static constants.Constant.Urls.ROZETKA_URL;
+import static constants.constant.Urls.ROZETKA_URL;
 
 public class BaseTest {
+
 
     protected WebDriver driver = commonActions.createDriver();
 
     protected BasePage basePage = new BasePage(driver);
-    protected RegressionPage regressionPage = new RegressionPage (driver);
-    protected LoginRozPage loginRozPage = new LoginRozPage(driver);
+    protected WishlistPage wishlistPage = new WishlistPage (driver);
+    protected LoginPage loginPage = new LoginPage(driver);
     protected SearchPage searchPage = new SearchPage(driver);
     protected FilteringPage filteringPage = new FilteringPage(driver);
     protected NotFoundPage notFoundPage = new NotFoundPage(driver);
     protected BuyPage buyPage = new BuyPage(driver);
+
+    protected Logger logger = Logger.getGlobal();
 
     @BeforeTest
     public void setUp() {
@@ -44,14 +45,13 @@ public class BaseTest {
         }
     }
 
-   @AfterTest (alwaysRun = true)
+//    @AfterTest (alwaysRun = true)
+//
+//    public void closeBrowser () {
+//        if (BROWSER_IS_OPEN) {
+//            driver.quit();
+//        }
+//    }
 
-    public void closeBrowser () {
-        if (BROWSER_IS_OPEN) {
-            driver.quit();
-        }
-    }
 
 }
-
-

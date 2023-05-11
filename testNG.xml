@@ -2,8 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" >
     <test verbose="2" preserve-order="true" name="D:\git\MaryProject\testNG.xml">
-       <classes>
-           <class name="tests.smokeTests.negativeTests.smokeNegTest"></class>
-       </classes>
+        <classes>
+            <class name="tests.All.PageNotFoundTest"></class>
+            <class name="tests.All.SearchTest"></class>
+        </classes>
     </test>
 </suite>
