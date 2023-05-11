@@ -45,13 +45,13 @@ public class BaseTest {
         }
     }
 
-//    @AfterTest (alwaysRun = true)
-//
-//    public void closeBrowser () {
-//        if (BROWSER_IS_OPEN) {
-//            driver.quit();
-//        }
-//    }
+    @AfterTest (alwaysRun = true)
+
+    public void closeBrowser () {
+        if (BROWSER_IS_OPEN) {
+            driver.quit();
+        }
+    }
 
 
 }
