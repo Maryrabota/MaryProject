@@ -2,5 +2,5 @@
 /shelf/
 /workspace.xml
 README.md
-/target
-allure-results
+target/
+allure-results/
