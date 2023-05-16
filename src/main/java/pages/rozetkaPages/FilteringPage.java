@@ -1,16 +1,11 @@
 package pages.rozetkaPages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
 
+import static common.WebDriverSingl.getDriver;
+
 public class FilteringPage extends BasePage {
-
-    public FilteringPage (WebDriver driver) {
-
-            super(driver);
-        }
 
         private final By phoneDiagonal65 = By.xpath("//a[contains (text(), '6.5')]");
         private final By phoneDiagonal65Tag = By.xpath("//li[@class='catalog-selection__item ng-star-inserted']//a[contains (text(), ' 6.5')]");
@@ -28,12 +23,12 @@ public class FilteringPage extends BasePage {
          */
 
         public FilteringPage chooseDiagonal65 () {
-            waitElementVisible(driver.findElement(phoneDiagonal65)).click();
+            waitElementVisible(getDriver().findElement(phoneDiagonal65)).click();
             return this;
         }
 
         public boolean tagDiagonal65IsPresent () {
-            waitElementVisible(driver.findElement(phoneDiagonal65Tag));
+            waitElementVisible(getDriver().findElement(phoneDiagonal65Tag));
             return true;
         }
 
@@ -42,14 +37,14 @@ public class FilteringPage extends BasePage {
          */
 
         public FilteringPage increasePhonePrice () {
-            driver.findElement(minPrice).clear();
-            driver.findElement(minPrice).sendKeys("45000");
-            driver.findElement(submitPriceBtn).submit();
+            getDriver().findElement(minPrice).clear();
+            getDriver().findElement(minPrice).sendKeys("45000");
+            getDriver().findElement(submitPriceBtn).submit();
             return this;
         }
 
         public boolean tagIncreasedPriceIsPresent () {
-            waitElementVisible(driver.findElement(increasedMinPriceTag));
+            waitElementVisible(getDriver().findElement(increasedMinPriceTag));
             return true;
         }
 
@@ -58,7 +53,7 @@ public class FilteringPage extends BasePage {
          */
 
         public int countPhonCards () {
-            return driver.findElements(phoneCards).size();
+            return getDriver().findElements(phoneCards).size();
         }
     }
 

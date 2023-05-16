@@ -1,18 +1,13 @@
 package pages.rozetkaPages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
 
+import static common.WebDriverSingl.getDriver;
 import static constants.constant.TextdataForLoginPage.ROZETKA_LOGIN;
 import static constants.constant.TextdataForLoginPage.ROZETKA_PASSWORD;
 
 public class LoginPage extends BasePage {
-
-    public LoginPage (WebDriver driver) {
-
-            super (driver);
-        }
 
         private final By userCabinet = By.xpath ("//li[@class='header-actions__item header-actions__item--user']");
 
@@ -29,14 +24,14 @@ public class LoginPage extends BasePage {
          */
 
         public LoginPage clickBtntoLogin () {
-            driver.findElement(userCabinet).click();
+            getDriver().findElement(userCabinet).click();
             return this;
         }
 
         public LoginPage enterLoginPassword (){
-            driver.findElement(loginInput).sendKeys(ROZETKA_LOGIN);
-            driver.findElement(passwordInput).sendKeys(ROZETKA_PASSWORD);
-            driver.findElement(LgnButton).click();
+            getDriver().findElement(loginInput).sendKeys(ROZETKA_LOGIN);
+            getDriver().findElement(passwordInput).sendKeys(ROZETKA_PASSWORD);
+            getDriver().findElement(LgnButton).click();
             return this;
         }
 
@@ -45,7 +40,7 @@ public class LoginPage extends BasePage {
          */
 
         public boolean authorizedUserNameIsPresent () {
-            waitElementVisible(driver.findElement(authorizedUserName));
+            waitElementVisible(getDriver().findElement(authorizedUserName));
             return true;
         }
     }

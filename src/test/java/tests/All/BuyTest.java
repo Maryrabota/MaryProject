@@ -33,5 +33,4 @@ public class BuyTest extends BaseTest {
             System.out.println("The contact information is not autofilled");
         }
     }
-
 }

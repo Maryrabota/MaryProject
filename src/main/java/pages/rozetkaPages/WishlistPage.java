@@ -1,17 +1,13 @@
 package pages.rozetkaPages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
+
+import static common.WebDriverSingl.getDriver;
 import static constants.constant.Locators.searchInput;
 import static constants.constant.TextDataForWishlistPage.HUAWEI_PHONE;
 
-public class WishlistPage extends BasePage {
-
-    public WishlistPage(WebDriver driver){
-
-        super(driver);
-    }
+public class WishlistPage extends BasePage{
 
     private final By findBtn = By.xpath("//button[contains (text(), 'Знайти ')]");
 
@@ -22,23 +18,23 @@ public class WishlistPage extends BasePage {
     private final By wishList = By.linkText("https://rozetka.com.ua/cabinet/wishlist/");
 
     public WishlistPage searchHuawei () {
-        driver.findElement(searchInput).sendKeys(HUAWEI_PHONE);
-        driver.findElement(findBtn).click();
+        getDriver().findElement(searchInput).sendKeys(HUAWEI_PHONE);
+        getDriver().findElement(findBtn).click();
         return this;
     }
 
     public WishlistPage firstHuaweiAddToWishlist () {
-        driver.findElement(firstHuaweiWishBtn).click();
+        getDriver().findElement(firstHuaweiWishBtn).click();
         return this;
     }
 
     public WishlistPage openWishList () {
-        driver.findElement(wishList).click();
+        getDriver().findElement(wishList).click();
         return this;
     }
 
     public boolean phoneDisplayed () {
-        waitElementVisible(driver.findElement(firstHuawei)).isDisplayed();
+        waitElementVisible(getDriver().findElement(firstHuawei)).isDisplayed();
         return true;
     }
 

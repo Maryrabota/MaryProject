@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class constant {
 
     public static class Timeout {
-        public static final int IMPL_WAIT = 5;
+        public static final int IMPL_WAIT = 20;
         public static final int EXPL_WAIT = 15;
     }
 

@@ -10,15 +10,13 @@ import static constants.constant.TextDataForSearchPage.SEARCH_WORKS_CONFIRM;
 public class SearchTest extends BaseTest {
 
         @Test
-        public void searchItem () throws InterruptedException{
+        public void searchItem () {
 
             /**
              * the test checks if search is working correctly and if it displays all items
              */
 
             searchPage.searchForShoes();
-
-            Thread.sleep(3000);
 
             Assert.assertEquals(searchPage.numberofShoeTiles(), ALL_SHOES_TILES);
 

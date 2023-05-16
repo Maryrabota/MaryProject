@@ -1,15 +1,11 @@
 package pages.rozetkaPages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.base.BasePage;
+import static common.WebDriverSingl.getDriver;
 
 public class BuyPage extends BasePage {
-
-    public BuyPage (WebDriver driver) {
-        super (driver);
-    }
 
     private final By buyBtn = By.xpath ("(//button[@class = 'buy-button goods-tile__buy-button ng-star-inserted']) [1]");
 
@@ -20,19 +16,19 @@ public class BuyPage extends BasePage {
     private final By contactInfo = By.xpath ("//p[@class = 'checkout-user__text checkout-user__toggle-animation ng-star-inserted show']");
 
     public BuyPage addingToCart () {
-        driver.findElement(buyBtn).click();
-        driver.findElement(cartBtn).click();
+        getDriver().findElement(buyBtn).click();
+        getDriver().findElement(cartBtn).click();
         return this;
     }
 
     public BuyPage oformiZakaz () {
-        WebElement oformiZakazElement = driver.findElement(oformiZakazBtn);
+        WebElement oformiZakazElement = getDriver().findElement(oformiZakazBtn);
         waitElementVisible(oformiZakazElement).click();
         return this;
     }
 
     public boolean contactInfoMarker () {
-        driver.findElement(contactInfo).isDisplayed();
+        getDriver().findElement(contactInfo).isDisplayed();
         return true;
     }
 }

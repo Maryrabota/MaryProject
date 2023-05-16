@@ -9,14 +9,12 @@ public class FilteringTest extends BaseTest {
 
     @Test
 
-    public void checkFilteringFunctionality () throws InterruptedException {
+    public void checkFilteringFunctionality ()  {
 
         basePage.open(ROZETKA_APPLE_URL);
-        Thread.sleep(4000);
+
         filteringPage.increasePhonePrice();
 
-
-        Thread.sleep(4000);
         if (filteringPage.tagIncreasedPriceIsPresent())
         {
             System.out.println("the increased-price tag appeared");
@@ -27,7 +25,6 @@ public class FilteringTest extends BaseTest {
         }
 
         filteringPage.chooseDiagonal65();
-        Thread.sleep(4000);
 
         if (filteringPage.tagDiagonal65IsPresent())
         {

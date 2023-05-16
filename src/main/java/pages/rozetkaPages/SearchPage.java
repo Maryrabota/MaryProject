@@ -1,17 +1,14 @@
 package pages.rozetkaPages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import pages.base.BasePage;
+
+import static common.WebDriverSingl.getDriver;
 import static constants.constant.Locators.searchBtn;
 import static constants.constant.Locators.searchInput;
 import static constants.constant.TextDataForSearchPage.*;
 
 public class SearchPage extends BasePage {
-
-        public SearchPage (WebDriver driver) {
-            super (driver);
-        };
 
         private final By firstShoes= By.xpath ("(//div[@class='goods-tile__inner']) [1]");
 
@@ -22,8 +19,8 @@ public class SearchPage extends BasePage {
          */
 
         public SearchPage searchForShoes () {
-            driver.findElement(searchInput).sendKeys(ADIDAS_SHOES);
-            driver.findElement(searchBtn).click();
+            getDriver().findElement(searchInput).sendKeys(ADIDAS_SHOES);
+            getDriver().findElement(searchBtn).click();
             return this;
         }
 
@@ -33,7 +30,7 @@ public class SearchPage extends BasePage {
 
         public int numberofShoeTiles  () {
 
-            int tilesSize = driver.findElements(allShoes).size();
+            int tilesSize = getDriver().findElements(allShoes).size();
             return tilesSize;
         }
 
@@ -42,7 +39,7 @@ public class SearchPage extends BasePage {
          */
 
         public boolean firstShoesOpened () {
-            waitElementVisible(driver.findElement(firstShoes)).isDisplayed();
+            waitElementVisible(getDriver().findElement(firstShoes)).isDisplayed();
             return true;
         }
 }
