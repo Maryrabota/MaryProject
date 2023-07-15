@@ -3,8 +3,7 @@
 <suite name="All Test Suite" >
     <test verbose="2" preserve-order="true" name="D:\git\MaryProject\testNG.xml">
         <classes>
-            <class name="tests.All.PageNotFoundTest"></class>
-            <class name="tests.All.SearchTest"></class>
+            <class name="tests.All.userTests"></class>
         </classes>
     </test>
 </suite>

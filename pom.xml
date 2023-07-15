@@ -103,7 +103,7 @@
                     </systemProperties>
 
                     <suiteXmlFiles>
-                        <suiteXmlFile> src/tests.All.PageNotFoundTest/resources/${suiteXml} </suiteXmlFile>
+                        <suiteXmlFile> src/tests.All.userTests/resources/${suiteXml} </suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
 

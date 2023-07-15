@@ -1,47 +1,36 @@
 package tests.base;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-import pages.base.BasePage;
-import pages.rozetkaPages.*;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.logging.Logger;
 
-import static common.WebDriverSingl.getDriver;
+import static common.WebDriverManager.getDriver;
 import static common.config.BROWSER_IS_OPEN;
-import static common.config.CLEAR_COOKIE_AND_STORAGE;
-import static constants.constant.Urls.ROZETKA_URL;
+import static common.config.Urls.ROZETKA_URL;
 
-public class BaseTest {
-
-    protected BasePage basePage = new BasePage();
-    protected WishlistPage wishlistPage = new WishlistPage ();
-    protected LoginPage loginPage = new LoginPage();
-    protected SearchPage searchPage = new SearchPage();
-    protected FilteringPage filteringPage = new FilteringPage();
-    protected NotFoundPage notFoundPage = new NotFoundPage();
-    protected BuyPage buyPage = new BuyPage();
+public abstract class BaseTest {
 
     protected Logger logger = Logger.getGlobal();
+
+    public void open (String url) throws MalformedURLException {
+        URL rozetkaBasepage = new URL(ROZETKA_URL);
+        URL relativeUrl = new URL (rozetkaBasepage, url);
+        getDriver().get (String.valueOf(relativeUrl.toString()));
+    }
+
+    public void openHomepage () {
+        getDriver().get(ROZETKA_URL);
+    }
 
     @BeforeTest
     public void setUp() {
         getDriver().get (ROZETKA_URL);
     }
 
-    @AfterTest
-
-    public void clearCookieAndStorage () {
-        if (CLEAR_COOKIE_AND_STORAGE) {
-            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) getDriver();
-            getDriver().manage().deleteAllCookies();
-            javascriptExecutor.executeScript("window.sessionStorage.clear()");
-        }
-    }
-
     @AfterTest (alwaysRun = true)
-
     public void closeBrowser () {
         if (BROWSER_IS_OPEN) {
             getDriver().quit();

@@ -3,7 +3,7 @@ package pages.rozetkaPages;
 import org.openqa.selenium.By;
 import pages.base.BasePage;
 
-import static common.WebDriverSingl.getDriver;
+import static common.WebDriverManager.getDriver;
 
 public class FilteringPage extends BasePage {
 
@@ -23,6 +23,7 @@ public class FilteringPage extends BasePage {
          */
 
         public FilteringPage chooseDiagonal65 () {
+            logger.info("set phone Diagonal to 165");
             waitElementVisible(getDriver().findElement(phoneDiagonal65)).click();
             return this;
         }
@@ -36,16 +37,27 @@ public class FilteringPage extends BasePage {
          *  set min iPhone price to 45000
          */
 
-        public FilteringPage increasePhonePrice () {
-            getDriver().findElement(minPrice).clear();
-            getDriver().findElement(minPrice).sendKeys("45000");
-            getDriver().findElement(submitPriceBtn).submit();
-            return this;
-        }
+        public FilteringPage clearPhonePrice () {
+        logger.info("Clear the field 'min price'");
+        getDriver().findElement(minPrice).clear();
+        return this;
+    }
+
+    public FilteringPage increasePhonePrice (String setMinPrice) {
+        logger.info("Set new 'min price'");
+        getDriver().findElement(minPrice).clear();
+        getDriver().findElement(minPrice).sendKeys(setMinPrice);
+        return this;
+    }
+        public FilteringPage submitBtn () {
+        logger.info("Click button Submit");
+        getDriver().findElement(submitPriceBtn).submit();
+        return this;
+    }
 
         public boolean tagIncreasedPriceIsPresent () {
-            waitElementVisible(getDriver().findElement(increasedMinPriceTag));
-            return true;
+        waitElementVisible(getDriver().findElement(increasedMinPriceTag));
+        return true;
         }
 
         /**
@@ -53,7 +65,8 @@ public class FilteringPage extends BasePage {
          */
 
         public int countPhonCards () {
-            return getDriver().findElements(phoneCards).size();
+        logger.info("Get the number of phone tiles");
+        return getDriver().findElements(phoneCards).size();
         }
     }
 

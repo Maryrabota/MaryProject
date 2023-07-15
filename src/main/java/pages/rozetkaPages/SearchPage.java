@@ -3,10 +3,7 @@ package pages.rozetkaPages;
 import org.openqa.selenium.By;
 import pages.base.BasePage;
 
-import static common.WebDriverSingl.getDriver;
-import static constants.constant.Locators.searchBtn;
-import static constants.constant.Locators.searchInput;
-import static constants.constant.TextDataForSearchPage.*;
+import static common.WebDriverManager.getDriver;
 
 public class SearchPage extends BasePage {
 
@@ -15,21 +12,11 @@ public class SearchPage extends BasePage {
         private final By allShoes = By.xpath("//div[@class = 'goods-tile__inner']");
 
         /**
-         * we enter the searched item into the search field
-         */
-
-        public SearchPage searchForShoes () {
-            getDriver().findElement(searchInput).sendKeys(ADIDAS_SHOES);
-            getDriver().findElement(searchBtn).click();
-            return this;
-        }
-
-        /**
          * we check correct tiles number of shoes on the page
          */
 
         public int numberofShoeTiles  () {
-
+            logger.info("Get the number of shoe tiles");
             int tilesSize = getDriver().findElements(allShoes).size();
             return tilesSize;
         }
@@ -38,8 +25,8 @@ public class SearchPage extends BasePage {
          * we check if shoes are displayed after implementing search
          */
 
-        public boolean firstShoesOpened () {
-            waitElementVisible(getDriver().findElement(firstShoes)).isDisplayed();
-            return true;
+        public void openFirstShoes () {
+            logger.info("Open first shoes");
+            waitElementVisible(getDriver().findElement(firstShoes)).click();
         }
 }
